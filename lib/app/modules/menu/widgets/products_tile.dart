@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:vakinha_burger_mobile/app/core/rest_client/rest_client.dart';
 import 'package:vakinha_burger_mobile/app/core/ui/vakinha_ui.dart';
+import 'package:vakinha_burger_mobile/app/models/product_model.dart';
 
 class ProductTile extends StatelessWidget {
-  const ProductTile({Key? key}) : super(key: key);
+  final ProductModel product;
+
+  const ProductTile({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +24,9 @@ class ProductTile extends StatelessWidget {
                   topLeft: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
                 ),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/lanche.png'),
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'http://dartweek.academiadoflutter.com.br/images${product.image}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -35,11 +40,11 @@ class ProductTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      'X-Tudão',
+                      product.name,
                       style: VakinhaUI.textBold,
                     ),
                     Text(
-                      r"R$ 200,00",
+                      r"R$ " + product.price.toString(),
                     ),
                   ],
                 ),
