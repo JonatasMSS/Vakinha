@@ -67,7 +67,7 @@ class PlusMinusButtonBox extends StatelessWidget {
               visible: label == null,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20, right: 10),
+              //margin: const EdgeInsets.only(left: 5, right: 10),
               constraints: const BoxConstraints(minWidth: 70),
               child: Text(
                 FormatterHelper.formatCurrency(
