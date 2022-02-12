@@ -84,8 +84,11 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                   Center(
                     child: SizedBox(
                       width: context.widthTransformer(reducedBy: 10),
-                      child:
-                          VakinhaButton(label: 'ADICIONAR', onPressed: () {}),
+                      child: VakinhaButton(
+                          label: controller.alreadyAdded
+                              ? 'ATUALIZAR '
+                              : 'ADICIONAR',
+                          onPressed: controller.addProductInShopp),
                     ),
                   ),
                 ],
